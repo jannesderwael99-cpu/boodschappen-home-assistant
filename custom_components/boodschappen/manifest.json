@@ -1,6 +1,9 @@
 {
   "domain": "boodschappen",
   "name": "Boodschappen",
+  "categories": [
+    "productivity_information.calendars_todos"
+  ],
   "codeowners": [],
   "config_flow": true,
   "documentation": "https://github.com/jannesderwael99-cpu/boodschappen-home-assistant",

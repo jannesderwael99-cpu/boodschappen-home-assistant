@@ -9,7 +9,7 @@
           "password": "App password"
         },
         "data_description": {
-          "server": "Address of your Boodschappen server, e.g. https://yourdomain.com",
+          "server": "Address of your Boodschappen server: the same address as in the app",
           "password": "The same password as in the Boodschappen app"
         }
       },
