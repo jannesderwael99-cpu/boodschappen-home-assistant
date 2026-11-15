@@ -70,3 +70,15 @@ async def test_options(hass: HomeAssistant, fake_server) -> None:
     await hass.async_block_till_done()
     assert entry.options[CONF_SCAN_INTERVAL] == 120
     assert entry.runtime_data.update_interval.total_seconds() == 120
+
+
+def test_normalize_server_https_only() -> None:
+    """Gewone http wordt geweigerd, behalve voor lokaal testen."""
+    import pytest
+    from custom_components.boodschappen.api import normalize_server
+
+    assert normalize_server("voorbeeld.be") == "https://voorbeeld.be/api/index.php"
+    assert normalize_server("https://voorbeeld.be/") == "https://voorbeeld.be/api/index.php"
+    assert normalize_server("http://127.0.0.1:8765") == "http://127.0.0.1:8765/api/index.php"
+    with pytest.raises(ValueError):
+        normalize_server("http://voorbeeld.be")

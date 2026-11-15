@@ -24,7 +24,7 @@
     "error": {
       "invalid_auth": "Wrong password.",
       "cannot_connect": "Cannot reach the server. Check the address.",
-      "invalid_url": "That is not a valid address.",
+      "invalid_url": "That is not a valid address. Use an https:// address.",
       "unknown": "Unexpected error."
     },
     "abort": {

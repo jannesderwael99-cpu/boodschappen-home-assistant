@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 import re
 from typing import Any
+from urllib.parse import urlsplit
 
 import aiohttp
 
@@ -34,6 +35,9 @@ def normalize_server(server: str) -> str:
         raise ValueError("leeg adres")
     if not re.match(r"^https?://", s, re.I):
         s = "https://" + s
+    # Wachtwoord en token gaan nooit onversleuteld over het netwerk (http enkel voor lokaal testen).
+    if s.lower().startswith("http://") and urlsplit(s).hostname not in ("localhost", "127.0.0.1", "::1"):
+        raise ValueError("alleen https")
     s = s.rstrip("/")
     if s.lower().endswith(".php"):
         return s

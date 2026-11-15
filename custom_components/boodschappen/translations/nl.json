@@ -24,7 +24,7 @@
     "error": {
       "invalid_auth": "Dat wachtwoord klopt niet.",
       "cannot_connect": "De server is niet bereikbaar. Controleer het adres.",
-      "invalid_url": "Dat is geen geldig adres.",
+      "invalid_url": "Dat is geen geldig adres. Gebruik een https://-adres.",
       "unknown": "Er ging iets onverwachts mis."
     },
     "abort": {
