@@ -1,0 +1,15 @@
+add_items:
+  fields:
+    items:
+      required: true
+      example: '["Melk (2 l)", "Brood", {"name": "Gehakt", "quantity": "500 g"}]'
+      selector:
+        object:
+    note:
+      example: "Voor lasagne (4 p.)"
+      selector:
+        text:
+    config_entry_id:
+      selector:
+        config_entry:
+          integration: boodschappen

@@ -1,0 +1,91 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect Boodschappen",
+        "description": "Connect your Boodschappen shopping list to Home Assistant. Enter the address of your Boodschappen server and the app password. The password is not stored; Home Assistant receives its own key.",
+        "data": {
+          "server": "Server",
+          "password": "App password"
+        },
+        "data_description": {
+          "server": "Address of your Boodschappen server, e.g. https://yourdomain.com",
+          "password": "The same password as in the Boodschappen app"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Sign in again",
+        "description": "Home Assistant's key expired or was revoked. Enter the app password again.",
+        "data": {
+          "password": "App password"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Wrong password.",
+      "cannot_connect": "Cannot reach the server. Check the address.",
+      "invalid_url": "That is not a valid address.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This Boodschappen server is already connected.",
+      "reauth_successful": "Signed in again."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Settings",
+        "data": {
+          "scan_interval": "Refresh every"
+        },
+        "data_description": {
+          "scan_interval": "How often Home Assistant updates the list (seconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "open_items": {
+        "name": "To buy",
+        "state_attributes": {
+          "items": {
+            "name": "Items"
+          }
+        }
+      }
+    }
+  },
+  "services": {
+    "add_items": {
+      "name": "Add products",
+      "description": "Add one or more products to the shopping list, with quantity and note.",
+      "fields": {
+        "items": {
+          "name": "Products",
+          "description": "List of products: text like \"Milk (2 l)\" or objects with name, quantity and note."
+        },
+        "note": {
+          "name": "Note",
+          "description": "Note for all products, e.g. \"For lasagne (4 p.)\"."
+        },
+        "config_entry_id": {
+          "name": "List",
+          "description": "Only needed when more than one Boodschappen account is connected."
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "no_items": {
+      "message": "No products given."
+    },
+    "no_entry": {
+      "message": "No working Boodschappen connection."
+    },
+    "choose_entry": {
+      "message": "Several Boodschappen connections exist; choose one."
+    }
+  }
+}

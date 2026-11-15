@@ -1,0 +1,91 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Boodschappen koppelen",
+        "description": "Koppel je Boodschappen-lijst met Home Assistant. Vul het adres van je Boodschappen-server en het wachtwoord van de app in. Het wachtwoord wordt niet bewaard; Home Assistant krijgt een eigen sleutel.",
+        "data": {
+          "server": "Server",
+          "password": "Wachtwoord van de app"
+        },
+        "data_description": {
+          "server": "Het adres van je Boodschappen-server, bv. https://jouwdomein.be",
+          "password": "Hetzelfde wachtwoord als in de Boodschappen-app"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Opnieuw aanmelden",
+        "description": "De sleutel van Home Assistant is verlopen of ingetrokken. Vul het wachtwoord van de app opnieuw in.",
+        "data": {
+          "password": "Wachtwoord van de app"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Dat wachtwoord klopt niet.",
+      "cannot_connect": "De server is niet bereikbaar. Controleer het adres.",
+      "invalid_url": "Dat is geen geldig adres.",
+      "unknown": "Er ging iets onverwachts mis."
+    },
+    "abort": {
+      "already_configured": "Deze Boodschappen-server is al gekoppeld.",
+      "reauth_successful": "Opnieuw aangemeld."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Instellingen",
+        "data": {
+          "scan_interval": "Lijst ophalen elke"
+        },
+        "data_description": {
+          "scan_interval": "Hoe vaak Home Assistant de lijst bijwerkt (in seconden)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "open_items": {
+        "name": "Te halen",
+        "state_attributes": {
+          "items": {
+            "name": "Items"
+          }
+        }
+      }
+    }
+  },
+  "services": {
+    "add_items": {
+      "name": "Producten toevoegen",
+      "description": "Zet een of meer producten op de boodschappenlijst, met hoeveelheid en notitie.",
+      "fields": {
+        "items": {
+          "name": "Producten",
+          "description": "Lijst van producten: tekst zoals \"Melk (2 l)\" of objecten met name, quantity en note."
+        },
+        "note": {
+          "name": "Notitie",
+          "description": "Notitie voor alle producten, bv. \"Voor lasagne (4 p.)\"."
+        },
+        "config_entry_id": {
+          "name": "Lijst",
+          "description": "Alleen nodig als je meer dan één Boodschappen-account gekoppeld hebt."
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "no_items": {
+      "message": "Geen producten opgegeven."
+    },
+    "no_entry": {
+      "message": "Er is geen werkende Boodschappen-koppeling."
+    },
+    "choose_entry": {
+      "message": "Je hebt meerdere Boodschappen-koppelingen; kies er een."
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "entity": {
+    "sensor": {
+      "open_items": { "default": "mdi:cart" }
+    }
+  },
+  "services": {
+    "add_items": { "service": "mdi:cart-plus" }
+  }
+}
